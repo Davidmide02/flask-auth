@@ -48,12 +48,11 @@ def register():
      password = request.form.get('password')
      age = request.form.get('age')
 
-     new_user = User(username = username, age = age)
+     new_user = User(username, age )
      new_user.set_password(password) # Hash password before saving
      db.session.add(new_user)
      db.session.commit()
      session['username'] = username
-     print("Register successfully")
      return redirect(url_for('index'))
     
     else: 
